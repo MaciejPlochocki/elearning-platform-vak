@@ -1,0 +1,192 @@
+/* css/style.css */
+:root {
+    /* Stonowana paleta barw bez ostrych kontrastów */
+    --bg-color: #f7f9fc;
+    --text-color: #4a4a4a;
+    --primary-color: #5c85d6;
+    --primary-hover: #476bb3;
+    --nav-bg: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #e1e5eb;
+    --success-color: #66cc99; /* Zgaszona zieleń dla ukończonych kursów */
+    --danger-color: #e67373;  /* Zgaszona czerwień dla nieukończonych */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Pasek nawigacji */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-bg);
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-left a {
+    margin-left: 0;
+    margin-right: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.nav-right a:hover {
+    color: var(--primary-hover);
+}
+
+/* Główne kontenery */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Formularze (rejestracja, logowanie) */
+.form-container {
+    background-color: var(--card-bg);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.alert-danger {
+    background-color: #ffe6e6;
+    color: #cc0000;
+}
+
+/* Hero section (Niezalogowany) */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+.hero-section h1 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.hero-section p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: var(--text-color);
+}
+.hero-btn {
+    font-size: 18px;
+    padding: 15px 40px;
+    display: inline-block;
+    width: auto;
+}
+
+/* Kafelki Kursów (Zalogowany) */
+.section-title {
+    margin: 30px 0 15px 0;
+    color: var(--primary-hover);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.course-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.course-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.course-content {
+    padding: 15px;
+}
+.course-content h4 {
+    margin-bottom: 10px;
+    color: var(--primary-hover);
+}
+.course-content p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+.btn-small {
+    padding: 8px 15px;
+    font-size: 14px;
+}
