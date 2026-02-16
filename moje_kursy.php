@@ -84,7 +84,7 @@ $moje_kursy = $stmt->fetchAll();
                     $bar_class = $is_completed ? 'bg-green' : 'bg-red';
                 ?>
                     <div class="course-card">
-                        <img src="img/<?php echo htmlspecialchars($kurs['obrazek']); ?>" alt="Kurs" class="course-img" onerror="this.src='https://via.placeholder.com/300x150?text=Brak+zdjęcia'">
+                        <img src="img/<?php echo htmlspecialchars($kurs['obrazek']); ?>" alt="Kurs" class="course-img" onerror="this.src='default_course.jpg'">
                         
                         <div class="course-content">
                             <h4><?php echo htmlspecialchars($kurs['tytul']); ?></h4>

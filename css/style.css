@@ -1,192 +1,277 @@
-/* css/style.css */
+/* css/style.css - NOWOCZESNY DESIGN PREMIUM */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
-    /* Stonowana paleta barw bez ostrych kontrastów */
-    --bg-color: #f7f9fc;
-    --text-color: #4a4a4a;
-    --primary-color: #5c85d6;
-    --primary-hover: #476bb3;
-    --nav-bg: #ffffff;
+    /* Paleta kolorów - elegancka i nieforsująca wzroku */
+    --primary-color: #4f46e5; /* Nowoczesny Indygo */
+    --primary-hover: #4338ca;
+    --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+    --bg-color: #f8fafc; /* Bardzo jasny, chłodny szary */
     --card-bg: #ffffff;
-    --border-color: #e1e5eb;
-    --success-color: #66cc99; /* Zgaszona zieleń dla ukończonych kursów */
-    --danger-color: #e67373;  /* Zgaszona czerwień dla nieukończonych */
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    
+    /* Kolory statusów */
+    --success-color: #10b981;
+    --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --danger-color: #ef4444;
+    --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    --warning-color: #f59e0b;
+    
+    /* Cienie */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
+    font-family: 'Poppins', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Pasek nawigacji */
+/* ================= NAV ================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--nav-bg);
-    padding: 15px 40px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.nav-left a, .nav-right a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    margin-left: 20px;
-    transition: color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 50px;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-left a {
-    margin-left: 0;
-    margin-right: 20px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
     color: var(--primary-color);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.nav-right a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-left: 25px;
+    font-size: 15px;
+    transition: all 0.3s ease;
 }
 
 .nav-right a:hover {
-    color: var(--primary-hover);
+    color: var(--primary-color);
 }
 
-/* Główne kontenery */
+/* ================= TYPOGRAFIA & KONTENERY ================= */
 .container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Formularze (rejestracja, logowanie) */
-.form-container {
-    background-color: var(--card-bg);
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus {
-    border-color: var(--primary-color);
-}
-
-.btn {
-    display: inline-block;
-    width: 100%;
-    padding: 12px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    text-align: center;
-    text-decoration: none;
-}
-
-.btn:hover {
-    background-color: var(--primary-hover);
-}
-
-.alert {
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.alert-danger {
-    background-color: #ffe6e6;
-    color: #cc0000;
-}
-
-/* Hero section (Niezalogowany) */
-.hero-section {
-    text-align: center;
-    padding: 80px 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-}
-.hero-section h1 {
-    font-size: 36px;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-.hero-section p {
-    font-size: 18px;
-    max-width: 800px;
-    margin: 0 auto 30px;
+h1, h2, h3, h4 {
     color: var(--text-color);
-}
-.hero-btn {
-    font-size: 18px;
-    padding: 15px 40px;
-    display: inline-block;
-    width: auto;
+    font-weight: 600;
 }
 
-/* Kafelki Kursów (Zalogowany) */
 .section-title {
-    margin: 30px 0 15px 0;
-    color: var(--primary-hover);
-    border-bottom: 2px solid var(--border-color);
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    position: relative;
     padding-bottom: 10px;
 }
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 50px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+}
+
+/* ================= PRZYCISKI ================= */
+.btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn:disabled {
+    background: #cbd5e1;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.btn-small { padding: 6px 14px; font-size: 13px; }
+
+/* ================= FORMULARZE ================= */
+.form-container {
+    background-color: var(--card-bg);
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* ================= KARTY KURSÓW ================= */
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 30px;
+    margin-top: 20px;
 }
+
 .course-card {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.3s;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.03);
 }
+
 .course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
 }
-.course-img {
+
+.course-img-wrapper {
+    height: 160px;
     width: 100%;
-    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.course-img-wrapper img, .course-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
-.course-content {
-    padding: 15px;
+
+.course-card:hover .course-img-wrapper img, .course-card:hover .course-img {
+    transform: scale(1.05);
 }
-.course-content h4 {
-    margin-bottom: 10px;
-    color: var(--primary-hover);
+
+.course-content { padding: 20px; flex-grow: 1; }
+.course-content h4 { font-size: 18px; margin-bottom: 10px; color: var(--text-color); }
+.course-content p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+.badge-matched {
+    background: var(--success-gradient);
+    color: white;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
-.course-content p {
+
+/* ================= ALERTY I PASKI POSTĘPU ================= */
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
     font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 15px;
+    font-weight: 500;
 }
-.btn-small {
-    padding: 8px 15px;
-    font-size: 14px;
+.alert-success { background-color: #ecfdf5; color: #065f46; border-left: 4px solid var(--success-color); }
+.alert-danger { background-color: #fef2f2; color: #991b1b; border-left: 4px solid var(--danger-color); }
+.alert-warning { background-color: #fffbeb; color: #92400e; border-left: 4px solid var(--warning-color); }
+
+.progress-wrapper { margin-top: 15px; }
+.progress-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--text-muted); }
+.progress-bar-container { width: 100%; height: 8px; background-color: var(--border-color); border-radius: 10px; overflow: hidden; }
+.progress-bar { height: 100%; border-radius: 10px; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+.bg-red { background: var(--danger-gradient); }
+.bg-green { background: var(--success-gradient); }
+
+/* ================= TABELE (Panele) ================= */
+.data-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 20px; }
+.data-table th { background-color: #f1f5f9; color: var(--text-muted); font-weight: 600; font-size: 13px; text-transform: uppercase; padding: 15px; text-align: left; }
+.data-table td { padding: 15px; border-bottom: 1px solid var(--border-color); font-size: 14px; background: white; }
+.data-table tr:hover td { background-color: #f8fafc; }
+
+/* ================= INNE (Lekcja, Hero, Cennik) ================= */
+.hero-section {
+    text-align: center; padding: 100px 20px; background: white; border-radius: 24px; box-shadow: var(--shadow-lg);
+    background-image: radial-gradient(circle at top right, #e0e7ff 0%, transparent 40%), radial-gradient(circle at bottom left, #e0e7ff 0%, transparent 40%);
 }
+.hero-section h1 { font-size: 46px; color: var(--text-color); margin-bottom: 20px; letter-spacing: -1px; }
+.hero-section p { font-size: 18px; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
+
+.lesson-text { font-size: 16px; line-height: 1.8; margin-top: 20px; padding: 25px; background-color: #f8fafc; border-radius: 12px; border: 1px solid var(--border-color); }
+.test-option { display: block; margin-bottom: 12px; padding: 16px; border: 2px solid var(--border-color); border-radius: 12px; cursor: pointer; transition: all 0.2s; font-weight: 500; }
+.test-option:hover { border-color: var(--primary-color); background-color: #f5f7ff; }
+
+/* Zmienne klasy ról */
+.badge-role { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;}
+.role-moderator { background: #fee2e2; color: #dc2626; }
+.role-nauczyciel { background: #e0e7ff; color: #4338ca; }
+.role-uczen { background: #dcfce3; color: #16a34a; }

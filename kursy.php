@@ -112,7 +112,7 @@ $kategorie = ['Matematyka', 'Informatyka', 'Elektryka', 'Język angielski'];
                     ?>
                         <div class="course-card">
                             <div class="course-img-wrapper">
-                                <img src="img/<?php echo htmlspecialchars($kurs['obrazek']); ?>" alt="Obrazek kursu" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x150/e1e5eb/777777?text=Kurs';">
+                                <img src="img/<?php echo htmlspecialchars($kurs['obrazek']); ?>" alt="Obrazek kursu" onerror="this.onerror=null; this.src='default_course.jpg'">
                             </div>
                             
                             <div class="course-content">
